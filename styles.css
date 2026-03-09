@@ -96,13 +96,38 @@ input {
     align-items: center;
     justify-content:space-between;
     text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    cursor: grab;
 }
+
+.tarea.seleccionado {
+    transform: scale(1.02) rotate(-1deg);
+    box-shadow: 0px 0px 20px rgba(149, 153, 159,.16);
+}
+
+.tarea.drag {
+    opacity: 0;
+}
+
+.tarea.agregar {
+    opacity: 1;
+    transform: translateY();
+}
+
+.tarea.eliminar {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 
 /*Tarea Completada*/
 .tarea.completada {
     text-decoration: line-through;
     background: black;
-    border: none; 
+    border: none;
 }
 
 .tarea p {
@@ -118,14 +143,25 @@ i {
 
 .icono-completar {
     color: #008000;
+    transition: 400ms;
 }
 
 .icono-eliminar {
     color: white;
+    transition: 400ms;
 }
 
-.icono-completar:hover , .icono-eliminar:hover {
+/* .icono-completar:hover , .icono-eliminar:hover {
 /* background-image: radial-gradient( circle 690px at 8.8% 19%,  rgba(72,81,86,1) 8%, rgba(187,187,187,1) 84.1% ); ; */
-background: wheat;
+/* background: wheat; 
+}*/
+
+.icono-completar:hover {
+    color: #023108;
 }
+
+.icono-eliminar:hover {
+    color: red;
+}
+
 

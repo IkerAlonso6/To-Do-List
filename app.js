@@ -1,6 +1,11 @@
 const input = document.getElementById("ingresar-tarea");
 const boton = document.querySelector("button");
 const listaTareas = document.getElementById("lista-tareas");
+Sortable.create(listaTareas, {
+    animation: 150,
+    chosenClass: "seleccionado",
+    dragClass: "drag",
+});
 
 boton.addEventListener("click", agregarTarea);  
 input.addEventListener("keydown", (e)=>{
@@ -14,6 +19,7 @@ function agregarTarea() {
         //Crear Tarea
         let tareaNueva = document.createElement("div");
         tareaNueva.classList.add("tarea"); 
+        tareaNueva.setAttribute("draggable", true);
 
         //texto agregado por el usuario
         let texto = document.createElement("p");
@@ -39,6 +45,12 @@ function agregarTarea() {
 
         //Agregar tarea a la lista
         listaTareas.appendChild(tareaNueva);
+
+        tareaNueva.getBoundingClientRect();
+        tareaNueva.classList.add("agregar");
+
+        //Limpiar input
+        input.value = "";
     }
     else {
         alert("Por favor ingresa una tarea");
@@ -54,6 +66,9 @@ function completarTarea(e)
 function eliminarTarea(e)
 {
     let tarea = e.target.parentNode.parentNode;
+    tarea.classList.add("eliminar");
+    tarea.addEventListener("transitionend", () => {
     tarea.remove();
+    });
 }
 
