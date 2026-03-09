@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'sansation', sans-serif;
+}
+
+body {
+background: #152331;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #000000, #152331);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #000000, #152331); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 40px 0;
+}
+
+.container {
+    width: 700px;
+    min-height: 500px;
+    background-color: white;
+    padding: 40px;
+    border: 5px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;   
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+input {
+    width: 80%;
+    height: 50px;
+    font-size: 25px;
+    margin: 20px;
+    padding: 10px;
+    border: 4px solid #404040;
+    border-radius: 10px;
+}
+
+/* button {
+    width: 150px;
+    height: 60px;
+    padding: 10px;
+    color: white;
+} */
+
+.btn-grad {
+  background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
+}
+
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  outline: none;
+  border: none;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+#lista-tareas {
+    width: 80%;
+    margin-top: 20px;
+}
+
+.tarea {
+    width: 100%;
+    min-height: 70px;
+    font-size: 25px;
+    padding: 10px;
+    margin-top: 10px;
+    color: white;
+    background-image: linear-gradient( 135deg, #FFCF71 10%, #2376DD 100%);;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    text-align: center;
+}
+
+/*Tarea Completada*/
+.tarea.completada {
+    text-decoration: line-through;
+    background: black;
+    border: none; 
+}
+
+.tarea p {
+    max-width: 750px; 
+} 
+
+/*Iconos */
+i {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.icono-completar {
+    color: #008000;
+}
+
+.icono-eliminar {
+    color: white;
+}
+
+.icono-completar:hover , .icono-eliminar:hover {
+/* background-image: radial-gradient( circle 690px at 8.8% 19%,  rgba(72,81,86,1) 8%, rgba(187,187,187,1) 84.1% ); ; */
+background: wheat;
+}
+
