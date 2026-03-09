@@ -4,7 +4,24 @@ const listaTareas = document.getElementById("lista-tareas");
 Sortable.create(listaTareas, {
     animation: 150,
     chosenClass: "seleccionado",
-    dragClass: "drag"
+    dragClass: "drag",
+    // onEnd : () => {
+    //     console.log("Se movio un elemento");
+    // },
+    group : "lista-tareas",
+    store : {
+        //Guardamos el orden de la lista de tareas
+        //Revisar Data-id para poder identificar mejor las tareas
+        set : (listaTareas) => 
+        {
+            const orden = listaTareas.toArray();
+            localStorage.setItem(listaTareas.options.group.name, orden.join("|"));
+        },
+        get : (listaTareas) => {
+            const orden = localStorage.getItem(listaTareas.options.group.name)
+            return orden ? orden.split("|") : [];
+        }
+    }
 });
 
 boton.addEventListener("click", agregarTarea);  
@@ -46,6 +63,9 @@ function agregarTarea() {
         //Agregar tarea a la lista
         listaTareas.appendChild(tareaNueva);
 
+        tareaNueva.getBoundingClientRect();
+        tareaNueva.classList.add("agregar");
+
         //Limpiar input
         input.value = "";
     }
@@ -63,6 +83,9 @@ function completarTarea(e)
 function eliminarTarea(e)
 {
     let tarea = e.target.parentNode.parentNode;
+    tarea.classList.add("eliminar");
+    tarea.addEventListener("transitionend", () => {
     tarea.remove();
+    });
 }
 

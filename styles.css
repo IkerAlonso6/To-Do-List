@@ -96,8 +96,9 @@ input {
     align-items: center;
     justify-content:space-between;
     text-align: center;
-    transition-duration: 700ms;
-    transition-behavior: allow-discrete;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
     cursor: grab;
 }
 
@@ -108,8 +109,19 @@ input {
 
 .tarea.drag {
     opacity: 0;
-    
 }
+
+.tarea.agregar {
+    opacity: 1;
+    transform: translateY();
+}
+
+.tarea.eliminar {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 
 /*Tarea Completada*/
 .tarea.completada {
