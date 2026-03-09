@@ -5,23 +5,6 @@ Sortable.create(listaTareas, {
     animation: 150,
     chosenClass: "seleccionado",
     dragClass: "drag",
-    // onEnd : () => {
-    //     console.log("Se movio un elemento");
-    // },
-    group : "lista-tareas",
-    store : {
-        //Guardamos el orden de la lista de tareas
-        //Revisar Data-id para poder identificar mejor las tareas
-        set : (listaTareas) => 
-        {
-            const orden = listaTareas.toArray();
-            localStorage.setItem(listaTareas.options.group.name, orden.join("|"));
-        },
-        get : (listaTareas) => {
-            const orden = localStorage.getItem(listaTareas.options.group.name)
-            return orden ? orden.split("|") : [];
-        }
-    }
 });
 
 boton.addEventListener("click", agregarTarea);  
