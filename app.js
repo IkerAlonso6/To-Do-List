@@ -80,11 +80,9 @@ function completarTarea(e)
 function eliminarTarea(e)
 {
     let tarea = e.target.parentNode.parentNode;
-    let arrayLS = JSON.parse(localStorage.getItem("tareas"));
     let textoTarea = tarea.innerText;
-    console.log(textoTarea);
-    arrayLS = arrayLS.filter(t => t.nombre !== textoTarea);
-    localStorage.setItem("tareas", JSON.stringify(arrayLS));
+    tareas = tareas.filter(t => t.nombre !== textoTarea);
+    guardarLocalStorage(tareas);
     tarea.classList.add("eliminar");
     tarea.addEventListener("transitionend", () => {
     tarea.remove();
