@@ -107,6 +107,7 @@ function cargarTareas()
 {
     //Array de localStorage
     let arrayTareasLs = JSON.parse(localStorage.getItem("tareas"));
+    tareas = arrayTareasLs;
     //forEach elemento en Array de localStorage, crear una tarea
     arrayTareasLs.forEach(e => {
     //Crear Tarea
