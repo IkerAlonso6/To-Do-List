@@ -75,6 +75,16 @@ function completarTarea(e)
 {
     let tarea = e.target.parentNode.parentNode;
     tarea.classList.toggle("completada");
+    let nombreTarea = tarea.innerText;
+    let tareaCompletar = tareas.find((e)=> e.nombre === nombreTarea)
+    if(tareaCompletar.estado !== "completada")
+    {
+        tareaCompletar.estado = "completada";
+    }
+    else {
+        tareaCompletar.estado = "pendiente";
+    }
+    guardarLocalStorage(tareas);
 }
 
 function eliminarTarea(e)
@@ -136,6 +146,10 @@ function cargarTareas()
 
         iconos.append(completar, eliminar); 
 
+         if(e.estado === "completada")
+        {
+            tareaNueva.classList.toggle("completada");
+        }
         //Agregar tarea a la lista
         listaTareas.appendChild(tareaNueva);
 
